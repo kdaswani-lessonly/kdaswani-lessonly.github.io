@@ -42,16 +42,9 @@
             destination: destination, 
             details: details
         };
-        analytics.identify('12345abc', {
-            email: email, 
-            name: fullname,
-            context: {
-                userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36"
-            },
-            traits: {
-                name: fullname,
-                email: email
-            },
+        analytics.identify('12345abc', {userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36'}, {
+            email: email,
+            name: fullname
         });
         analytics.track('destination submitted', user, function() {
             window.location.href = "";

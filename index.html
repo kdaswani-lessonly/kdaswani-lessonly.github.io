@@ -16,6 +16,8 @@
 <form name="travel" onsubmit="identify(event)">
      What is your favorite travel destination?
     <input name="destination" required="" size="81" type="text"/> 
+    <br><br>
+    Number of times you have been there: <input name="frequency" required="" size="30" type="text"/>
     <br><br><br> 
     Any recommendations (cool things to do, places to visit or restaurants to eat)? 
     <br><br> 
@@ -36,11 +38,13 @@
         var fullname = form["fullname"].value;
         var destination = form["destination"].value;
         var details = form["details"].value;
+        var number = form["frequency"].value;
         var user = {
             email: email, 
             name: fullname, 
             destination: destination, 
-            details: details
+            details: details,
+            visits: number
         };
         analytics.identify('12345abc', {
             email: email,

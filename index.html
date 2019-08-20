@@ -27,6 +27,7 @@
     Email: <input name="email" required="" size="75" type="email"/> 
     <br><br>
     <input name="submit" type="submit" value="submit"/>
+    <button type="button">TEST</button>
 </form>
 <script type="text/javascript">
       function identify(e){
@@ -36,6 +37,7 @@
         var fullname = form["fullname"].value;
         var destination = form["destination"].value;
         var details = form["details"].value;
+        var 
         var user = {
             email: email, 
             name: fullname, 
@@ -47,6 +49,9 @@
             name: fullname
         });
         analytics.track('destination submitted', user, function() {
+            window.location.href = "";
+        });
+        analytics.track('test button clicked', email, function() {
             window.location.href = "";
         });
       }

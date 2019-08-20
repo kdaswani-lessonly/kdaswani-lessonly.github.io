@@ -51,9 +51,11 @@
         });
       }
 </script>
-<button type="button">TEST</button>
+<button type="button" onclick="testButton(event)">TEST</button>
 <script type="text/javascript">
-    analytics.track('test button clicked');
+    function testButton(e){
+        analytics.track('test button clicked');
+    }
 </script>
 </body> 
 </html>

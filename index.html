@@ -61,5 +61,17 @@
         analytics.track('test button clicked');
     }
 </script>
+<button type="button" onclick="unplannedButton(event)">Unplanned Event</button>
+<script type="text/javascript">
+    function unplannedButton(e){
+        analytics.track('unplanned event');
+    }
+</script>
+ <button type="button" onclick="schemaViolationButton(event)">JSON Schema Violation</button>
+<script type="text/javascript">
+    function schemaViolationButton(e){
+        analytics.track('destination submitted', {hometown: 'new york'});
+    }
+</script>
 </body> 
 </html>

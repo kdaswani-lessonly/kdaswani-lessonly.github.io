@@ -46,7 +46,7 @@
             details: details,
             visits: number
         };
-        analytics.identify('44444', {
+        analytics.identify('33333', {
             email: email,
             name: fullname
         });
@@ -80,7 +80,9 @@
         analytics.group('123SB', {
             name: 'My Company',
             industry: 'Technology',
-            location_id: "123SB"
+            city: 'New York'
+            type: 'location_id;,
+            id: '123SB'
         });
     }
 </script>
@@ -90,7 +92,8 @@
         analytics.group('A694', {
             name: 'My Company',
             industry: 'Technology',
-            account_id: "A694"
+            type: 'account_id',
+            id: 'A694'
         });
     }
 </script>

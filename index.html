@@ -74,5 +74,16 @@
         analytics.track('destination submitted', {hometown: 'new york'});
     }
 </script>
+<button type="button" onclick="gr(event)">group call</button>
+<script type="text/javascript">
+    function gr(e){
+        analytics.group('0404', {
+            name: 'My Company',
+            industry: 'Technology',
+            location_id: "123SB",
+            account_id: "A694"
+        });
+    }
+</script>
 </body> 
 </html>

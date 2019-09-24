@@ -10,23 +10,24 @@
         }}();
     </script>
 </head> 
-<body> 
-<h1>What is your favorite place to travel?</h1> 
-<p>I am building a directory of the sweetest travel destinations.</p>  
+<body style="background-color:darkseagreen; margin: 10px; text-align:center;"> 
+<h1>Form Submission</h1> 
 <form name="travel" onsubmit="identify(event)">
      What is your favorite travel destination?
-    <input name="destination" required="" size="81" type="text"/> 
+    <input name="destination" required="" size="60" type="text"/> 
     <br><br>
     Number of times you have been there: <input name="frequency" size="30" type="number"/>
     <br><br><br> 
     Any recommendations (cool things to do, places to visit or restaurants to eat)? 
     <br><br> 
-    <textarea cols="81" name="details" required="" rows="10">
+    <textarea cols="81" name="details" required="" rows="5">
     </textarea> 
     <br><br> 
-    Name: <input name="fullname" required="" size="75" type="text"/> 
+    Name: <input name="fullname" required="" size="60" type="text"/> 
     <br><br> 
-    Email: <input name="email" required="" size="75" type="email"/> 
+    Email: <input name="email" required="" size="60" type="email"/> 
+    <br><br>
+    User ID: <input name="id" required="" size="30" type="text"/> 
     <br><br>
     <input name="submit" type="submit" value="Submit"/>
 </form>
@@ -39,6 +40,7 @@
         var destination = form["destination"].value;
         var details = form["details"].value;
         var number = form["frequency"].value;
+        var id = form["id"].value;
         var user = {
             email: email, 
             name: fullname, 
@@ -46,37 +48,55 @@
             details: details,
             visits: number
         };
-        analytics.identify('33333', {
+        analytics.identify(id, {
             email: email,
             name: fullname
         });
-        analytics.track('destination submitted', user, function() {
+        analytics.track('Destination Submitted', user, function() {
             window.location.href = "";
         });
       }
 </script>
 <br>
-<button type="button" onclick="testButton(event)">TEST</button>
+<h1>Track Events</h1> 
+<form name="events" onsubmit="testButton(event)">
+    Event Name:
+    <input name="eventname" required="" size="60" type="text"/> 
+    <input name="track" type="submit" value="Track"/>
+</form>
 <script type="text/javascript">
     function testButton(e){
-        analytics.track('test button clicked');
+        e.preventDefault();
+        var formtwo = e.target;
+        var email = form["email"].value;
+        var fullname = form["fullname"].value;
+        var eventName = formtwo["eventname"].value;
+        var usertwo = {
+            email: email,
+            name: fullname
+        }
+        analytics.track(eventName, user, function() {
+            window.location.href = "";
+        });
     }
 </script>
+<h1>Protocols Testing</h1> 
 <button type="button" onclick="unplannedButton(event)">Unplanned Event</button>
 <script type="text/javascript">
     function unplannedButton(e){
-        analytics.track('unplanned event');
+        analytics.track('Unplanned Event');
     }
 </script>
- <button type="button" onclick="schemaViolationButton(event)">JSON Schema Violation</button>
+ <button type="button" onclick="schemaViolation(event)">JSON Schema Violation</button>
 <script type="text/javascript">
-    function schemaViolationButton(e){
-        analytics.track('destination submitted', {hometown: 'new york'});
+    function schemaViolation(e){
+        analytics.track('Destination Submitted', {hometown: 'New York'});
     }
 </script>
-<button type="button" onclick="gr(event)">location group call</button>
+<h1>Group Calls</h1> 
+<button type="button" onclick="location(event)">Location Group</button>
 <script type="text/javascript">
-    function gr(e){
+    function location(e){
         analytics.group('123SB', {
             name: 'My Company',
             industry: 'Technology',
@@ -86,9 +106,9 @@
         });
     }
 </script>
- <button type="button" onclick="gro(event)">account group call</button>
+ <button type="button" onclick="account(event)">Account Group</button>
 <script type="text/javascript">
-    function gro(e){
+    function account(e){
         analytics.group('A694', {
             name: 'My Company',
             industry: 'Technology',

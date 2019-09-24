@@ -68,17 +68,11 @@
     function testButton(e){
         e.preventDefault();
         var formtwo = e.target;
-        var email = form["email"].value;
-        var fullname = form["fullname"].value;
         var eventName = formtwo["eventname"].value;
         var usertwo = {
-            email: email,
-            name: fullname
+            email: "test@segment.com",
         };
-        analytics.identify(00000, {
-            email: email,
-            name: fullname
-        });
+        analytics.identify(00000, usertwo);
         analytics.track(eventName, usertwo, function() {
             window.location.href = "";
         });

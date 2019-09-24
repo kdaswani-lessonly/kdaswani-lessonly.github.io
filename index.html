@@ -61,7 +61,7 @@
 <h1>Track Events</h1> 
 <form name="events" onsubmit="testButton(event)">
     Event Name:
-    <input name="eventname" required="" size="60" type="text"/> 
+    <input name="eventname" required="" size="40" type="text"/> 
     <input name="track" type="submit" value="Track"/>
 </form>
 <script type="text/javascript">
@@ -74,8 +74,12 @@
         var usertwo = {
             email: email,
             name: fullname
-        }
-        analytics.track(eventName, user, function() {
+        };
+        analytics.identify(00000, {
+            email: email,
+            name: fullname
+        });
+        analytics.track(eventName, usertwo, function() {
             window.location.href = "";
         });
     }

@@ -62,6 +62,13 @@
 <form name="events" onsubmit="testButton(event)">
     Event Name:
     <input name="eventname" required="" size="40" type="text"/> 
+    <br>
+    User ID: 
+    <input name="id_two" required="" size="30" type="text"/> 
+    <br>
+    Email: 
+    <input name="email_two" required="" size="60" type="email"/> 
+    <br>
     <input name="track" type="submit" value="Track"/>
 </form>
 <script type="text/javascript">
@@ -69,10 +76,12 @@
         e.preventDefault();
         var formtwo = e.target;
         var eventName = formtwo["eventname"].value;
+        var emailTwo = formtwo["email_two"].value;
+        var idTwo = formtwo["id_two"].value;
         var usertwo = {
-            email: "test@segment.com",
+            email: emailTwo,
         };
-        analytics.identify(00000, usertwo);
+        analytics.identify(idTwo, usertwo);
         analytics.track(eventName, usertwo, function() {
             window.location.href = "";
         });

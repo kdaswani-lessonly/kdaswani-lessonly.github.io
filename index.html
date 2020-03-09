@@ -146,9 +146,9 @@
     }
 </script>
 <h1>Grab braze_id For Anonymous User and Identify</h1> 
-<button type="button" onclick="brazeId(event)">Braze ID</button>
+<button type="button" onclick="braze(event)">Braze ID</button>
 <script type="text/javascript">
-    function brazeId(e){
+    function braze(e){
         e.preventDefault();
         var deviceid = appboy.getDeviceId(function(deviceId);
         analytics.identify({

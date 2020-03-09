@@ -136,4 +136,23 @@
     }
 </script>
 </body> 
+<h1>Anonymous User Track Event</h1> 
+<button type="button" onclick="anon(event)">Anonymous Track</button>
+<script type="text/javascript">
+    function anon(e){
+       analytics.track('Deals Browsed', {
+            category: 'clothing'
+       });  
+    }
+</script>
+<h1>Grab braze_id For Anonymous User and Identify</h1> 
+<button type="button" onclick="brazeId(event)">Braze ID</button>
+<script type="text/javascript">
+    function brazeId(e){
+        analytics.identify({
+            braze_device_id: appboy.getDeviceId(function(deviceId)
+        });
+    }
+</script>
+</body> 
 </html>

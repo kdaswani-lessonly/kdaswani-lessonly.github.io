@@ -149,6 +149,7 @@
 <button type="button" onclick="brazeId(event)">Braze ID</button>
 <script type="text/javascript">
     function brazeId(e){
+        e.preventDefault();
         var deviceid = appboy.getDeviceId(function(deviceId);
         analytics.identify({
             braze_device_id: deviceid
